@@ -12,15 +12,15 @@ import java.util.Arrays;
 @Component
 class someClass {
     someDependency sd;
-    public someClass(someDependency sd){
-        this.sd = sd;
-        System.out.println("someClass");
-    }
-
     @PostConstruct
     public void initialization(){
         System.out.println("Initializing someClass");
         sd.getReady();
+    }
+
+    public someClass(someDependency sd){
+        this.sd = sd;
+        System.out.println("someClass");
     }
 
     @PreDestroy
